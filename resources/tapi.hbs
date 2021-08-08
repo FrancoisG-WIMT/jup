@@ -1,0 +1,24 @@
+{{#each itineraries}}
+=== Itinerary ===
+Journey time: {{departureTime}} - {{arrivalTime}}
+Duration: {{duration}}s
+Distance: {{distance.value}}{{distance.unit}}
+{{#each legs}}
+
+-- Leg --
+{{type}} {{line.agency.name}} ({{duration}} sec, {{distance.value}}{{distance.unit}})
+From: {{startWaypoint waypoints}}
+To: {{endWaypoint waypoints}}
+{{#if waypoints.length}}
+{{#each waypoints}}
+  -  {{stop.name}}
+{{/each}}
+{{/if}}
+{{#if directions.length}}
+{{#each directions}}
+  -  {{this.instruction}}
+{{/each}}
+{{/if}}
+{{/each}}
+
+{{/each}}

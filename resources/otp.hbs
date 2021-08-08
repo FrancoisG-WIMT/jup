@@ -1,0 +1,22 @@
+{{#each plan.itineraries}}
+=== Itinerary ===
+Journey time: {{formatDateTime startTime}} - {{formatDateTime endTime}}
+Transfers: {{transfers}}
+Duration: {{duration}} sec (walking: {{walkTime}} sec, transit: {{transitTime}} sec, waiting: {{waitingTime}} sec)
+Distance: unknown (walking: {{walkDistance}})
+{{#each legs}}
+
+-- Leg --
+{{mode}}{{#if agencyName}} {{agencyName}}{{/if}} ({{duration}} sec, {{distance}}m)
+From: {{from.name}}
+To: {{to.name}}
+
+{{#each steps}}
+  -  {{absoluteDirection}} {{distance}} on {{streetName}} 
+{{/each}}
+{{#each intermediateStops}}
+  -  {{name}}
+{{/each}}
+{{/each}}
+
+{{/each}}
